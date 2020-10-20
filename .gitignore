@@ -43,5 +43,6 @@ hs_err_pid*
 
 .vscode
 .wakatime-project
+practica1.java
 
 # End of https://www.gitignore.io/api/java,linux
