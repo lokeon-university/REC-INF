@@ -9,7 +9,7 @@ public class Ejer5 {
 
   public static void main(String[] args) {
     INPUT = "alalalala";
-    REGEX = "^[la]*$";
+    REGEX = "[la]+";
 
     Pattern pat = Pattern.compile(REGEX);
     Matcher mat = pat.matcher(INPUT);
