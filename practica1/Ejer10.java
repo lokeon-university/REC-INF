@@ -7,7 +7,7 @@ public class Ejer10 {
   private static String REGEX;
 
   public static void main(String[] args) {
-    REGEX = "^\\d{2,3}.\\d{2,3}.\\d{1,3}.\\d{1,3}$";
+    REGEX = "\\d{2,3}.\\d{2,3}.\\d{1,3}.\\d{1,3}";
 
     String[] ips = { "192.168.1.1", "200.36.127.40", "10.128.1.253" };
     for (int i = 0; i < ips.length; i++) {

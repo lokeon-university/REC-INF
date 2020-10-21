@@ -7,10 +7,9 @@ public class Ejer7 {
   private static String REGEX;
   private static String INPUT;
 
-  //ESTA MAL
   public static void main(String[] args) {
-    INPUT = "alalal25lal26al";
-    REGEX = "^.*2[^6].*$";
+    INPUT = "AaAaAaAaAa";
+    REGEX = "[a-zA-Z]{5,10}";
 
     Pattern pat = Pattern.compile(REGEX);
     Matcher mat = pat.matcher(INPUT);

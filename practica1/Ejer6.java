@@ -9,7 +9,7 @@ public class Ejer6 {
 
   public static void main(String[] args) {
     INPUT = "alalal25lalal";
-    REGEX = ".*2{1}[0-57-9].*";
+    REGEX = ".*2[^6].*";
 
     Pattern pat = Pattern.compile(REGEX);
     Matcher mat = pat.matcher(INPUT);
