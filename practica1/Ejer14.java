@@ -14,6 +14,7 @@ public class Ejer14 {
   private static String INPUT;
 
   public static void main(String[] args) {
+    int i = 0;
     URL url;
     InputStream is = null;
     BufferedReader br;
@@ -50,7 +51,8 @@ public class Ejer14 {
       System.out.println("Match not found");
     } else {
       while (mat.find()) {
-        System.out.println(mat.group() + " Match found");
+        i++;
+        System.out.println(mat.group() + " Match found " + i);
       }
     }
   }
