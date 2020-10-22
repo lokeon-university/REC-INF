@@ -9,7 +9,7 @@ public class Ejer3 {
 
   public static void main(String[] args) {
     INPUT = "abccaa";
-    REGEX = "^\\D.*"; //escape de \ -> \\ /d digito /D no digito
+    REGEX = "^\\D.*";
 
     Pattern pat = Pattern.compile(REGEX);
     Matcher mat = pat.matcher(INPUT);
