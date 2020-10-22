@@ -9,7 +9,7 @@ public class Ejer8 {
 
   public static void main(String[] args) {
     INPUT = "www.uca.es";
-    REGEX = "^w{3}.*es$";
+    REGEX = "^w{3}.*\\.es$";
 
     Pattern pat = Pattern.compile(REGEX);
     Matcher mat = pat.matcher(INPUT);
