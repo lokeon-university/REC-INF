@@ -43,7 +43,7 @@ public class Ejer20 {
 
     text = text.replaceAll("\\d+ ", " ");
     text = text.toUpperCase();
-    text = text.replaceAll("  ", " ");
+    text = text.replaceAll(" +", " ");
 
     br.close();
 
