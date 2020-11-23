@@ -4,13 +4,13 @@ import os
 import queue
 from urllib.parse import urlparse, unquote
 
+
 class Crawler(object):
     def __init__(self, seed):
         self.routeFolder = 'html/'
-        self.seed = seed  # semilla
-        self.queue = queue.Queue()  # cola
-        self.visitedURL = set()  # urlVisitadas
-        # self.queue1 = queue.Queue() #pruebas
+        self.seed = seed
+        self.queue = queue.Queue()
+        self.visitedURL = set()
 
     def get_html(self, url):
         try:
@@ -51,8 +51,7 @@ class Crawler(object):
         # f is for straightfoward values
         base = f"{parsed.scheme}://{parsed.netloc}"
         links = re.findall('''<a\\s+(?:[^>]*?\\s+)?href="([^"]*)"''', text)
-        # print(links)
-        for i, link in enumerate(links): #entire link
+        for i, link in enumerate(links):  # entire link
             if not urlparse(link).netloc:
                 link_with_base = base + link
                 links[i] = link_with_base
@@ -66,21 +65,12 @@ class Crawler(object):
 
     def crawl(self, url):
         for link in self.get_links(url):
-            if link in self.visitedURL:
-                continue
-            print(link)
-            # print(self.visitedURL)
-            self.queue.put(link)
-            self.visitedURL.add(link)
-            self.extract_info(link)
-            # self.queue1.put(link)
+            if link not in self.visitedURL:
+                print(link)
+                self.queue.put(link)
+                self.visitedURL.add(link)
+                self.extract_info(link)
 
-        # while not self.queue1.empty():
-        #     print(self.queue.get(), end='\n')
-        #     print(self.queue1.get(), end='\n')
-
-        # print("FRONT QUEUE " + self.queue.get())
-        # print(self.visitedURL, end="\n")
         self.crawl(self.queue.get(0))
 
     def start(self):
