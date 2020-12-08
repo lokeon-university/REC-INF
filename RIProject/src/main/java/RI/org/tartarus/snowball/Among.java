@@ -1,4 +1,4 @@
-package org.tartarus.snowball;
+package RI.org.tartarus.snowball;
 
 import java.lang.reflect.Method;
 
