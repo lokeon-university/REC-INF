@@ -7,15 +7,15 @@ public class Stemming {
 
     private englishStemmer stemmer = new englishStemmer();
 
-    public ArrayList<String> stemming(ArrayList<String> filteredText) {
-        for (int i = 0; i < filteredText.size(); i++) {
-            if (!filteredText.get(i).contains("-")) {
-                stemmer.setCurrent(filteredText.get(i));
+    public ArrayList<String> stemming(ArrayList<String> terms) {
+        for (int i = 0; i < terms.size(); i++) {
+            if (!terms.get(i).contains("-")) {
+                stemmer.setCurrent(terms.get(i));
                 stemmer.stem();
-                filteredText.set(i, stemmer.getCurrent());
+                terms.set(i, stemmer.getCurrent());
             }
         }
 
-        return filteredText;
+        return terms;
     }
 }

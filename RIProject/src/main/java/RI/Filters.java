@@ -17,36 +17,36 @@ public class Filters {
         sp.close();
     }
 
-    public ArrayList<String> filterThreshold(ArrayList<String> filteredText) {
-        for (int i = 0; i < filteredText.size(); i++) {
-            if (filteredText.get(i).length() < 2) {
-                filteredText.remove(i);
+    public ArrayList<String> filterThreshold(ArrayList<String> terms) {
+        for (int i = 0; i < terms.size(); i++) {
+            if (terms.get(i).length() < 2) {
+                terms.remove(i);
             }
         }
 
-        filteredText.trimToSize();
+        terms.trimToSize();
 
-        return filteredText;
+        return terms;
     }
 
-    public ArrayList<String> filterStopwords(ArrayList<String> filteredText) throws IOException {
+    public ArrayList<String> filterStopwords(ArrayList<String> terms) throws IOException {
         for (int i = 0; i < stopwords.size(); i++) {
-            if (filteredText.contains(stopwords.get(i))) {
-                filteredText.removeAll(Collections.singleton(stopwords.get(i)));
+            if (terms.contains(stopwords.get(i))) {
+                terms.removeAll(Collections.singleton(stopwords.get(i)));
             }
         }
 
-        filteredText.trimToSize();
+        terms.trimToSize();
 
-        return filteredText;
+        return terms;
     }
 
     public String filterCharacters(String text) {
-        text = text.replaceAll("[^-\\w ]", "");
-        text = text.replaceAll("^-|-$", " ");
-        text = text.replaceAll("\\b[0-9]+\\b", " ");
-        text = text.replaceAll(" +", " ");
         text = text.toLowerCase();
+        text = text.replaceAll("[^-\\w]", " ");
+        text = text.replaceAll("\\b[0-9]+\\b", " ");
+        text = text.replaceAll("-+ | -+", " ");
+        text = text.replaceAll(" +", " ");
 
         return text;
     }
