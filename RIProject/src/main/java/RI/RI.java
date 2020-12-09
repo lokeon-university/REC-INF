@@ -15,7 +15,11 @@ public class RI {
     public static void indexation() throws IOException {
         Filters filter = new Filters();
         Stemming stemming = new Stemming();
+        TF_IDF tf_IDF = new TF_IDF();
+        MemoryLoad memoryLoad = new MemoryLoad();
         TermFrequency termFrecuency = new TermFrequency();
+        HashMap<String, Integer> termFrequencies;
+        HashMap<String, Tuple> invertedIndex = new HashMap<String, Tuple>();
         ArrayList<String> terms;
         String text = "", textFiltered;
 
@@ -35,15 +39,22 @@ public class RI {
 
             //Filtereing by threshold...
             terms = filter.filterThreshold(terms);
-            
+
             // for (int i = 0; i < terms.size(); i++) {
             //     System.out.println(terms.get(i));
             // }
 
             //Frecuencies
-            HashMap<String, Integer> termFrequencies = termFrecuency.frecuencies(terms);
+            termFrequencies = termFrecuency.frequencies(terms);
 
+            //Inverted Index with TF
+            tf_IDF.calculateTF(invertedIndex, termFrequencies, f.getName());
         }
+
+        //Inverted Index with TF-IDF
+        tf_IDF.calculateIDF(invertedIndex, corpus.list().length);
+        //Save Index
+        memoryLoad.saveIndex(invertedIndex);
     }
 
     public static void main(String[] args) throws IOException {

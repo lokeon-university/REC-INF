@@ -5,7 +5,7 @@ import java.util.HashMap;
 
 public class TermFrequency {
 
-    public HashMap<String, Integer> frecuencies(ArrayList<String> terms) {
+    public HashMap<String, Integer> frequencies(ArrayList<String> terms) {
         HashMap<String, Integer> termFrecuencies = new HashMap<String, Integer>();
 
         int frecuency = 0;
