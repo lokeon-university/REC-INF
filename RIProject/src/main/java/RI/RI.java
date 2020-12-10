@@ -20,6 +20,7 @@ public class RI {
         TermFrequency termFrecuency = new TermFrequency();
         HashMap<String, Integer> termFrequencies;
         HashMap<String, Tuple> invertedIndex = new HashMap<String, Tuple>();
+        HashMap<String,Double> longDoc = new HashMap<String, Double>();
         ArrayList<String> terms;
         String text = "", textFiltered;
 
@@ -55,6 +56,9 @@ public class RI {
         tf_IDF.calculateIDF(invertedIndex, corpus.list().length);
         //Save Index
         memoryLoad.saveIndex(invertedIndex);
+        //Long Doc
+        tf_IDF.calculateLong(invertedIndex, longDoc);
+        
     }
 
     public static void main(String[] args) throws IOException {
