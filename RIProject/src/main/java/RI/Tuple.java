@@ -23,4 +23,9 @@ public class Tuple {
     public HashMap<String, Double> getWeightDoc() {
         return weightDoc;
     }
+
+    @Override
+    public String toString() {
+        return IDF + " - " + weightDoc;
+    }
 }

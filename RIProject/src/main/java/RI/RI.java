@@ -58,6 +58,8 @@ public class RI {
         memoryLoad.saveIndex(invertedIndex);
         //Long Doc
         tf_IDF.calculateLong(invertedIndex, longDoc);
+
+        memoryLoad.saveLong(longDoc);
         
     }
 
