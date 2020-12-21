@@ -22,7 +22,7 @@ public class Search {
     private ArrayList<String> terms;
     private String text = "", textFiltered;
 
-    public Search() {}
+    public Search() {} 
 
     public void start() throws IOException {
         invertedIndex = memoryLoad.loadIndex();
