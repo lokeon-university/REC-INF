@@ -8,7 +8,7 @@ public class RI {
     private static Search search = new Search();
 
     public static void main(String[] args) throws IOException {
-        indexation.start();
-        search.start();
+        //indexation.start();
+        search.start("aaa");
     }
 }
