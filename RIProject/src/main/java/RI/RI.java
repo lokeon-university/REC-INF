@@ -37,15 +37,15 @@ public class RI {
                     System.out.println("\nWrite the terms that you want to search: ");
                     scanner.nextLine();
                     terms = scanner.nextLine();
-                    
+
                     System.out.println("\nHow many results do you want?");
                     results = scanner.nextInt();
 
                     System.out.println("Searching...\n");
-                    search.start(terms);
-                
+                    search.start(terms, results);
+
                     System.out.println("\n----------------------------------------------------\n");
-                
+
                     break;
                 default:
                     System.out.println("There is not option available.");

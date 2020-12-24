@@ -10,7 +10,7 @@ import java.util.HashMap;
 
 public class Indexation {
 
-    private static File corpus = new File("corpus1");
+    private static File corpus = new File("corpus");
     private Stemming stemming = new Stemming();
     private TF_IDF tf_IDF = new TF_IDF();
     private MemoryLoad memoryLoad = new MemoryLoad();

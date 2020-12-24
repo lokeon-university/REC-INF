@@ -30,7 +30,9 @@ public class TF_IDF {
 
     public void calculateIDF(HashMap<String, Tuple> invertedIndex, int nFiles) {
         for (String term : invertedIndex.keySet()) {
-            invertedIndex.get(term).setIDF(Math.log(nFiles / invertedIndex.get(term).getWeightDoc().size()));
+            invertedIndex
+                .get(term)
+                .setIDF(Math.log(nFiles / invertedIndex.get(term).getWeightDoc().size()) / Math.log(2));
         }
     }
 
