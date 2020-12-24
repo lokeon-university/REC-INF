@@ -21,15 +21,14 @@ public class Search {
 
     public Search() {}
 
-    // public void orderbyValueDescent(HashMap<String, Double> score) {
-    //     LinkedHashMap<String, Double> reverseSortedMap = new LinkedHashMap<>();
-
-    //     score
-    //         .entrySet()
-    //         .stream()
-    //         .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
-    //         .forEachOrdered(x -> reverseSortedMap.put(x.getKey(), x.getValue()));
-    // }
+    public void orderbyValueDescent(HashMap<String, Double> score) {
+        LinkedHashMap<String, Double> reverseSortedMap = new LinkedHashMap<>();
+        score
+            .entrySet()
+            .stream()
+            .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
+            .forEachOrdered(x -> reverseSortedMap.put(x.getKey(), x.getValue()));
+    }
 
     public void start(String search) throws IOException {
         Filters filter = new Filters();
