@@ -26,6 +26,7 @@ public class Indexation {
     public void start() throws IOException {
         Filters filter = new Filters();
        
+        System.out.println("\nApplaying filters...\n");
         //Filters
         for (File f : corpus.listFiles()) {
             text = new String(Files.readAllBytes(Paths.get(f.getPath())));
@@ -50,13 +51,23 @@ public class Indexation {
             tf_IDF.calculateTF(invertedIndex, termFrequencies, f.getName());
         }
 
+        System.out.println("Calculating Inverted Index\n");
         //Inverted Index with TF-IDF
         tf_IDF.calculateIDF(invertedIndex, corpus.list().length);
+        
+        System.out.println("Saving in index.txt...\n");
         //Save Index
         memoryLoad.saveIndex(invertedIndex);
+       
+        System.out.println("Calculating Document Length\n"); 
         //Long Doc
         tf_IDF.calculateLong(invertedIndex, longDoc);
+
+        System.out.println("Saving in long.txt...\n");
         //Save Long
         memoryLoad.saveLong(longDoc);
+        
+        System.out.println("Indexation Complete!\n");
+        
     }
 }
