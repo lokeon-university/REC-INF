@@ -21,6 +21,7 @@ public class Filters {
         for (int i = 0; i < terms.size(); i++) {
             if (terms.get(i).length() < 2) {
                 terms.remove(i);
+                i = i - 1;
             }
         }
 
@@ -43,9 +44,12 @@ public class Filters {
 
     public String filterCharacters(String text) {
         text = text.toLowerCase();
+        //chars not needed
         text = text.replaceAll("[^-\\w]", " ");
+        //numbers
         text = text.replaceAll("\\b[0-9]+\\b", " ");
         text = text.replaceAll("-+ | -+", " ");
+        //spaces
         text = text.replaceAll(" +", " ");
 
         return text;

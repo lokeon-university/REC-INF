@@ -1,5 +1,7 @@
 package RI;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -30,6 +32,15 @@ public class Search {
             .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
             .limit(nResults)
             .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+    }
+
+    public void showDocument(String idDoc) throws IOException {
+        BufferedReader br = new BufferedReader(new FileReader("corpus/" + idDoc));
+        String line;
+        while ((line = br.readLine()) != null) {
+            System.out.println(line);
+        }
+        System.out.println("\n");
     }
 
     public void start(String search, int nResults) throws IOException {
@@ -72,6 +83,7 @@ public class Search {
             String idDoc = doc.toString();
             String weight = scoreSorted.get(doc).toString();
             System.out.println("Document ID: " + idDoc + " Weight: " + weight);
+            showDocument(idDoc);
         }
     }
 }
