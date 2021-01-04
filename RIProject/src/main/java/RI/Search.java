@@ -1,8 +1,11 @@
 package RI;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -35,12 +38,15 @@ public class Search {
     }
 
     public void showDocument(String idDoc) throws IOException {
-        BufferedReader br = new BufferedReader(new FileReader("corpus/" + idDoc));
-        String line;
-        while ((line = br.readLine()) != null) {
-            System.out.println(line);
+        File f = new File("corpus/" + idDoc);
+        String text = new String(Files.readAllBytes(Paths.get(f.getPath())));
+
+        if (text.length() >= 80) {
+            System.out.println(text.substring(0, 80) + "[...]\n");
         }
-        System.out.println("\n");
+        else{
+            System.out.println(text);
+        }
     }
 
     public void start(String search, int nResults) throws IOException {
