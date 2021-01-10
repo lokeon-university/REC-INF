@@ -40,10 +40,9 @@ public class Search {
         String text = new String(Files.readAllBytes(Paths.get(f.getPath())));
 
         if (text.length() >= 80) {
-            System.out.println(text.substring(0, 80) + "[...]\n");
-        }
-        else{
-            System.out.println(text);
+            System.out.println("Summary: " + text.substring(0, 80) + "[...]\n");
+        } else {
+            System.out.println("Summary: " + text);
         }
     }
 
