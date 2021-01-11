@@ -32,7 +32,7 @@ public class TF_IDF {
         for (String term : invertedIndex.keySet()) {
             invertedIndex
                 .get(term)
-                .setIDF(Math.log(nFiles / invertedIndex.get(term).getWeightDoc().size()));
+                .setIDF(Math.log(nFiles / invertedIndex.get(term).getWeightDoc().size()) / Math.log(2));
         }
     }
 

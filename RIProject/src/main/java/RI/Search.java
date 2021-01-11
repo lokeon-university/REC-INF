@@ -48,6 +48,7 @@ public class Search {
 
     public void start(String search, int nResults) throws IOException {
         Filters filter = new Filters();
+        score.clear();
 
         if (invertedIndex.isEmpty()) {
             invertedIndex = memoryLoad.loadIndex();
